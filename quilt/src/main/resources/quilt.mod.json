@@ -25,10 +25,12 @@
     "license": "MIT",
     "icon": "icon.png",
     "intermediate_mappings": "net.fabricmc:intermediary",
-    "environment": "*",
+    "minecraft": {
+      "environment": "client"
+    },
     "entrypoints": {
-      "init": [
-        "com.github.tartaricacid.i18nupdatemod.quilt.I18nUpdateModQuilt"
+      "client_init": [
+        "com.github.tartaricacid.i18nupdatemod.I18nUpdateMod"
       ]
     },
     "depends": [
