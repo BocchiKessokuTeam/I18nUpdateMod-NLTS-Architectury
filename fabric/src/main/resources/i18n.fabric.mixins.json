@@ -1,10 +1,9 @@
 {
   "required": true,
   "package": "com.github.tartaricacid.i18nupdatemod.fabric.mixin",
-  "compatibilityLevel": "JAVA_16",
+  "compatibilityLevel": "JAVA_8",
   "client": [
-    "MixinBookContents",
-    "MixinContentExternalLoader"
+    "MixinBookContents"
   ],
   "mixins": [
   ],

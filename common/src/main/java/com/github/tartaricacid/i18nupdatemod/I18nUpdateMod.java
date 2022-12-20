@@ -3,8 +3,8 @@ package com.github.tartaricacid.i18nupdatemod;
 import net.minecraft.client.MinecraftClient;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.io.FileUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,7 +24,7 @@ public class I18nUpdateMod {
     public static final Path LANGUAGE_MD5 = I18nUpdateModExpectPlatform.isMD5Path();
     public static final String LINK = I18nUpdateModExpectPlatform.isDownloadLink();
     public static final String MD5 = I18nUpdateModExpectPlatform.isMD5Link();
-    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+    public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
     public static String MD5String = "";
     public static final Path OPTIONS_FILE = Paths.get(MinecraftClient.getInstance().runDirectory.toString(), "options.txt");
     

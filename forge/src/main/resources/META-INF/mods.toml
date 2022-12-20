@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[37,)"
+loaderVersion = "[35,)"
 license = "MIT"
 
 [[mods]]
@@ -16,20 +16,20 @@ logoFile = "icon.png"
 [[dependencies.i18nupdatemod]]
 modId = "forge"
 mandatory = true
-versionRange = "[37,)"
+versionRange = "[35,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.i18nupdatemod]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.17,)"
+versionRange = "[1.16.4,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.i18nupdatemod]]
 modId = "architectury"
 mandatory = true
-versionRange = "[2.10.12,)"
+versionRange = "[1.32.66,)"
 ordering = "AFTER"
 side = "BOTH"

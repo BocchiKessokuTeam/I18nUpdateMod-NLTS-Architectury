@@ -1,6 +1,6 @@
 package com.github.tartaricacid.i18nupdatemod.forge;
 
-import dev.architectury.platform.forge.EventBuses;
+import me.shedaniel.architectury.platform.forge.EventBuses;
 import com.github.tartaricacid.i18nupdatemod.I18nUpdateMod;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;

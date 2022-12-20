@@ -3,8 +3,7 @@
   "package": "com.github.tartaricacid.i18nupdatemod.forge.mixin",
   "compatibilityLevel": "JAVA_16",
   "client": [
-    "MixinBookContents",
-    "MixinContentExternalLoader"
+    "MixinBookContents"
   ],
   "mixins": [
   ],
