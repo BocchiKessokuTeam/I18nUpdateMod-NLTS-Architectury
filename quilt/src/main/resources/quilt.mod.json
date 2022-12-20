@@ -30,7 +30,7 @@
     },
     "entrypoints": {
       "client_init": [
-        "com.github.tartaricacid.i18nupdatemod.I18nUpdateMod"
+        "com.github.tartaricacid.i18nupdatemod.quilt.I18nUpdateModQuilt"
       ]
     },
     "depends": [
