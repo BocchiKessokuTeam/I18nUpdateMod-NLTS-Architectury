@@ -25,9 +25,6 @@
     "license": "MIT",
     "icon": "icon.png",
     "intermediate_mappings": "net.fabricmc:intermediary",
-    "minecraft": {
-      "environment": "client"
-    },
     "entrypoints": {
       "client": [
         "com.github.tartaricacid.i18nupdatemod.quilt.I18nUpdateModQuilt"
