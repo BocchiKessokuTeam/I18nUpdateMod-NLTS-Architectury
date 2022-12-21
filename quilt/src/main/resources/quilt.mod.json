@@ -26,9 +26,7 @@
     "icon": "icon.png",
     "intermediate_mappings": "net.fabricmc:intermediary",
     "entrypoints": {
-      "client": [
-        "com.github.tartaricacid.i18nupdatemod.quilt.I18nUpdateModQuilt"
-      ]
+      "client_init": "com.github.tartaricacid.i18nupdatemod.quilt.I18nUpdateModQuilt"
     },
     "depends": [
       {
@@ -38,6 +36,10 @@
       {
         "id": "quilt_base",
         "version": "*"
+      },
+      {
+        "id": "quilted_fabric_api",
+        "versions": "*"
       },
       {
         "id": "minecraft",
