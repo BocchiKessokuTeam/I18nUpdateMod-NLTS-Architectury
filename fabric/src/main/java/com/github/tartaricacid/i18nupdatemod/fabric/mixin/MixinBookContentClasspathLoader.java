@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 @Mixin(BookContentClasspathLoader.class)
-public class MixinBookContents {
+public class MixinBookContentClasspathLoader {
     @Inject(at = @At("HEAD"), method = "loadJson", cancellable = true, remap = false)
     private void loadJson(Book book, Identifier resloc, @Nullable Identifier fallback, CallbackInfoReturnable<InputStream> cir) {
         I18nUpdateMod.LOGGER.debug("loading json from {}.", resloc);
