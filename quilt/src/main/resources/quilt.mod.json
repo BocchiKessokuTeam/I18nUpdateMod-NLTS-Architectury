@@ -29,7 +29,7 @@
       "environment": "client"
     },
     "entrypoints": {
-      "client_init": [
+      "client": [
         "com.github.tartaricacid.i18nupdatemod.quilt.I18nUpdateModQuilt"
       ]
     },
