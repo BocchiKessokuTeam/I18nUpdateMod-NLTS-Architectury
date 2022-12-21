@@ -21,6 +21,9 @@
 		"entrypoints": {
 			"init": "com.github.tartaricacid.i18nupdatemod.quilt.I18nUpdateModQuilt"
 		},
+		"minecraft": {
+			"environment": "*"
+		},
 		"depends": [
 			{
 				"id": "quilt_loader",
