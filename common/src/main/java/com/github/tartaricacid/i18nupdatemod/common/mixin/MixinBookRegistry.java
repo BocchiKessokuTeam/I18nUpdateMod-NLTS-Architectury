@@ -1,12 +1,9 @@
 /*
 Credit: https://github.com/StarskyXIII/PRP-Fabric
 */
-package com.github.tartaricacid.i18nupdatemod.fabric.mixin;
+package com.github.tartaricacid.i18nupdatemod.common.mixin;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import net.minecraft.util.Identifier;
+import net.minecraft.resources.ResourceLocation;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -18,11 +15,15 @@ import vazkii.patchouli.common.base.PatchouliConfig;
 import vazkii.patchouli.common.book.Book;
 import vazkii.patchouli.common.book.BookRegistry;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
 @Mixin(value = {BookRegistry.class}, remap = false)
 public class MixinBookRegistry {
     @Final
     @Shadow
-    public final Map<Identifier, Book> books = new HashMap<>();
+    public final Map<ResourceLocation, Book> books = new HashMap<>();
     @Shadow
     private boolean loaded = false;
 

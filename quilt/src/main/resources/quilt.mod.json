@@ -1,47 +1,55 @@
 {
-	"schema_version": 1,
-	"quilt_loader": {
-		"group": "${group}",
-		"id": "i18nupdatemod",
-		"version": "${version}",
-		"metadata": {
-			"name": "I18nUpdateMod Non-LTS Architectury",
-			"description": "自动汉化更新",
-            "contributors": {
-				"TartaricAcid , baka-gourd , exzhawk": "credits",
-				"TexTrue, TexTrueStudio": "authors"
-			},
-			"contact": {
-                "homepage": "https://modrinth.com/mod/i18nupdatemod-nlts",
-                "sources": "https://github.com/TexTrueStudio/I18nUpdateMod2-NLTS"
-			},
-			"icon": "icon.png"
-		},
-		"intermediate_mappings": "net.fabricmc:intermediary",
-		"entrypoints": {
-			"init": "com.github.tartaricacid.i18nupdatemod.quilt.I18nUpdateModQuilt"
-		},
-		"minecraft": {
-			"environment": "*"
-		},
-		"depends": [
-			{
-				"id": "quilt_loader",
-				"versions": "*"
-			},
-			{
-				"id": "quilted_fabric_api",
-				"versions": "*"
-			},
-			{
-				"id": "minecraft",
-				"versions": "1.18.x"
-			},
-            {
-                "id": "architectury",
-                "version": ">=4.9.83"
-            }
-		]
-	},
-	"mixin": "i18n.quilt.mixins.json"
+  "schema_version": 1,
+  "mixin": [
+    "i18n.common.mixins.json"
+  ],
+  "quilt_loader": {
+    "group": "${group}",
+    "id": "i18nupdatemod",
+    "version": "${version}",
+    "name": "I18nUpdateMod Non-LTS Architectury",
+    "description": "自动汉化更新",
+    "authors": [
+      "TexTrue",
+      "TexTrueStudio"
+    ],
+    "credits": [
+      "TartaricAcid",
+      "baka-gourd",
+      "exzhawk"
+    ],
+    "contact": {
+      "homepage": "https://modrinth.com/mod/i18nupdatemod-nlts",
+      "sources": "https://github.com/TexTrueStudio/I18nUpdateMod2-NLTS"
+    },
+    "license": "MIT",
+    "icon": "icon.png",
+    "intermediate_mappings": "net.fabricmc:intermediary",
+    "environment": "*",
+    "entrypoints": {
+      "init": "com.github.tartaricacid.i18nupdatemod.quilt.I18nUpdateModQuilt"
+    },
+    "depends": [
+      {
+        "id": "quilt_loader",
+        "version": "*"
+      },
+      {
+        "id": "quilt_base",
+        "version": "*"
+      },
+      {
+        "id": "quilted_fabric_api",
+        "versions": "*"
+      },
+      {
+        "id": "minecraft",
+        "version": "1.18.x"
+      },
+      {
+        "id": "architectury",
+        "version": ">=4.9.83"
+      }
+    ]
+  }
 }

@@ -1,15 +1,16 @@
 /*
 Credit: https://github.com/StarskyXIII/PRP-Fabric
 */
-package com.github.tartaricacid.i18nupdatemod.fabric.mixin;
+package com.github.tartaricacid.i18nupdatemod.common.mixin;
 
 import com.github.tartaricacid.i18nupdatemod.I18nUpdateMod;
 import com.google.common.base.Preconditions;
 import com.google.gson.JsonElement;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.resource.Resource;
-import net.minecraft.resource.ResourceManager;
-import net.minecraft.util.Identifier;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.resources.Resource;
+import net.minecraft.server.packs.resources.ResourceManager;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -30,9 +31,9 @@ import java.util.List;
 @Mixin(value = BookContentClasspathLoader.class, remap = false)
 public class MixinBookContentClasspathLoader {
     @Inject(at = @At("HEAD"), method = "findFiles")
-    private void findFiles(Book book, String dir, List<Identifier> list, CallbackInfo ci) {
+    private void findFiles(Book book, String dir, List<ResourceLocation> list, CallbackInfo ci) {
         String prefix = String.format("%s/%s/%s/%s", BookRegistry.BOOKS_LOCATION, book.id.getPath(), BookContentsBuilder.DEFAULT_LANG, dir);
-        Collection<Identifier> files = MinecraftClient.getInstance().getResourceManager().findResources(prefix, p -> p.endsWith(".json"));
+        Collection<ResourceLocation> files = Minecraft.getInstance().getResourceManager().listResources(prefix, p -> p.endsWith(".json"));
 
         files.stream()
                 .distinct()
@@ -48,16 +49,16 @@ public class MixinBookContentClasspathLoader {
                     if (newPath.startsWith("/")) {
                         newPath = newPath.substring(1);
                     }
-                    return new Identifier(file.getNamespace(), newPath);
+                    return new ResourceLocation(file.getNamespace(), newPath);
                 })
                 .forEach(list::add);
 
     }
 
     @Inject(at = @At("HEAD"), method = "loadJson", cancellable = true, remap = false)
-    private void loadJson(Book book, Identifier resloc, @Nullable Identifier fallback, CallbackInfoReturnable<JsonElement> callback) {
+    private void loadJson(Book book, ResourceLocation resloc, @Nullable ResourceLocation fallback, CallbackInfoReturnable<JsonElement> callback) {
         I18nUpdateMod.LOGGER.debug("[Patchouli] Loading {}", resloc);
-        ResourceManager manager = MinecraftClient.getInstance().getResourceManager();
+        ResourceManager manager = Minecraft.getInstance().getResourceManager();
         try {
             Resource resource = manager.getResource(resloc);
 
