@@ -9,7 +9,7 @@ dependencies {
     // Remove the next line if you don't want to depend on the API
     modApi "dev.architectury:architectury:${rootProject.architectury_version}"
 
-    modApi "vazkii.patchouli:Patchouli:${rootProject.patchouli_version}-${rootProject.patchouli_channel}"
+    modApi "vazkii.patchouli:Patchouli:${rootProject.patchouli_version}-FABRIC-${rootProject.patchouli_channel}"
 }
 
 publishing {

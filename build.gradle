@@ -12,16 +12,9 @@ subprojects {
     apply plugin: "dev.architectury.loom"
     //apply plugin: "io.github.juuxel.loom-quiltflower"
 
-    loom {
-        silentMojangMappingsLicense()
-    }
-
-    repositories {
-        maven {
-            name 'Quilt'
-            url 'https://maven.quiltmc.org/repository/release'
-        }
-    }
+    //loom {
+    //    silentMojangMappingsLicense()
+    //}
 
     dependencies {
         minecraft "com.mojang:minecraft:${rootProject.minecraft_version}"
