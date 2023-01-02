@@ -1,6 +1,7 @@
 package com.github.tartaricacid.i18nupdatemod;
 
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.option.GameOptions;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
@@ -13,6 +14,7 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 public class I18nUpdateMod {
@@ -27,16 +29,13 @@ public class I18nUpdateMod {
     public static final String MD5 = I18nUpdateModExpectPlatform.isMD5Link();
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
     public static String MD5String = "";
-    public static final Path OPTIONS_FILE = Paths.get(MinecraftClient.getInstance().runDirectory.toString(), "options.txt");
+    //public static final Path OPTIONS_FILE = Paths.get(MinecraftClient.getInstance().runDirectory.toString(), "options.txt");
 
     public static void init() {
         
         //System.out.println(I18nUpdateModExpectPlatform.getConfigDirectory().toAbsolutePath().normalize().toString());
 
-        try {
-            MinecraftOptionsUtils.createInitFile(OPTIONS_FILE.toFile());
-        } catch (IOException ignore) {
-        }
+        MinecraftClient.getInstance().options.language="zh_cn";
 
         // 检查主资源包目录是否存在
         if (!Files.isDirectory(CACHE_DIR)) {
@@ -164,9 +163,18 @@ public class I18nUpdateMod {
     }
 
     public static void setResourcesRepository() {
-        try {
-            MinecraftOptionsUtils.changeFile(OPTIONS_FILE.toFile());
-        } catch (IOException ignore) {
+        MinecraftClient mc = MinecraftClient.getInstance();
+        GameOptions gameSettings = mc.options;
+        // 在 gameSetting 中加载资源包
+        if (!gameSettings.resourcePacks.contains(LANG_PACK_FILE_NAME)) {
+            mc.options.resourcePacks.add(LANG_PACK_FILE_NAME);
+        } else {
+            List<String> packs = new ArrayList<>(10);
+            // 资源包的 index 越小优先级越低（在资源包 GUI 中置于更低层）
+            packs.add(LANG_PACK_FILE_NAME);
+            packs.addAll(gameSettings.resourcePacks);
+            gameSettings.resourcePacks = packs;
         }
+        //我们并不需要在此重载资源包，因为构造mod时在加载mod资源包之前，之后minecraft会自己重载资源包。
     }
 }
