@@ -2,15 +2,15 @@
 Credits:https://github.com/RPMTW/RPMTW-Platform-Mod/tree/1.17-deprecated
 */
 
-package com.github.tartaricacid.i18nupdatemod.forge.mixin;
+package com.github.tartaricacid.i18nupdatemod.mixin;
 
+import com.github.tartaricacid.i18nupdatemod.I18nUpdateMod;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import com.github.tartaricacid.i18nupdatemod.I18nUpdateMod;
 import vazkii.patchouli.client.book.BookContentClasspathLoader;
 import vazkii.patchouli.common.book.Book;
 

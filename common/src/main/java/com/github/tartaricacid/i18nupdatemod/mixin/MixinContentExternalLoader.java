@@ -2,7 +2,7 @@
 Credits:https://github.com/RPMTW/RPMTW-Platform-Mod/tree/1.17-deprecated
 */
 
-package com.github.tartaricacid.i18nupdatemod.fabric.mixin;
+package com.github.tartaricacid.i18nupdatemod.mixin;
 
 import com.github.tartaricacid.i18nupdatemod.I18nUpdateMod;
 import net.minecraft.client.MinecraftClient;
