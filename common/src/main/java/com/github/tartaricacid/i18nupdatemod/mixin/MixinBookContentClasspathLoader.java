@@ -1,7 +1,7 @@
 /*
 Credit: https://github.com/StarskyXIII/PRP-Fabric
 */
-package com.github.tartaricacid.i18nupdatemod.common.mixin;
+package com.github.tartaricacid.i18nupdatemod.mixin;
 
 import com.github.tartaricacid.i18nupdatemod.I18nUpdateMod;
 import com.google.common.base.Preconditions;

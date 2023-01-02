@@ -1,7 +1,7 @@
 /*
 Credit: https://github.com/StarskyXIII/PRP-Fabric
 */
-package com.github.tartaricacid.i18nupdatemod.common.mixin;
+package com.github.tartaricacid.i18nupdatemod.mixin;
 
 import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Final;
