@@ -94,12 +94,14 @@ public class I18nUpdateMod {
 
             try {
                 if (!md5.equals(MD5String)) {
-                    // TODO：阻塞式下载必不可少，但是否应该增加提示？
+                    // TODO：已在 log 输出提示，但是否加入弹窗提示？
+                    LOGGER.info("Downloading Chinese language Resource Pack.");
                     FileUtils.copyURLToFile(new URL(LINK), LANGUAGE_PACK.toFile());
                     InputStream stream = Files.newInputStream(LANGUAGE_PACK);
                     md5 = DigestUtils.md5Hex(stream).toUpperCase();
                     // 说明有可能下载损坏，就不要复制后加载了
                     if (!md5.equals(MD5String)) {
+                        LOGGER.error("Error when compute md5.");
                         setResourcesRepository();
                         return;
                     }
@@ -109,7 +111,7 @@ public class I18nUpdateMod {
                     Files.copy(LANGUAGE_PACK, LOCAL_LANGUAGE_PACK);
                 }
             } catch (MalformedURLException e) {
-                LOGGER.error("Download language pack failed.");
+                LOGGER.error("Download Chinese language Resource Pack failed.");
                 e.printStackTrace();
                 setResourcesRepository();
                 return;
@@ -124,7 +126,7 @@ public class I18nUpdateMod {
                 FileUtils.copyURLToFile(new URL(LINK), LANGUAGE_PACK.toFile());
                 Files.copy(LANGUAGE_PACK, LOCAL_LANGUAGE_PACK);
             } catch (IOException e) {
-                LOGGER.error("Download language pack failed.");
+                LOGGER.error("Download Chinese language Resource Pack failed.");
                 e.printStackTrace();
                 return;
             }
@@ -175,6 +177,6 @@ public class I18nUpdateMod {
             packs.addAll(gameSettings.resourcePacks);
             gameSettings.resourcePacks = packs;
         }
-        //我们并不需要在此重载资源包，因为构造mod时在加载mod资源包之前，之后minecraft会自己重载资源包。
+        //并不需要在此重载资源包，因为构造mod在加载mod资源包之前，之后minecraft会自己重载资源包。
     }
 }
