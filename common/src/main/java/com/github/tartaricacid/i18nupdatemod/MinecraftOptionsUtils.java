@@ -10,6 +10,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.List;
 
+//如果模组主类设置语言和资源包没有问题，此类将被移除
 public class MinecraftOptionsUtils {
     private static final String DEFAULT_LANG = "lang:zh_cn";
     private static final String OPTION_PACK_NAME = "file/" + I18nUpdateMod.LANG_PACK_FILE_NAME;

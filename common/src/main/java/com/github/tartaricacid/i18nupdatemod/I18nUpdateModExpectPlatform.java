@@ -35,7 +35,7 @@ public class I18nUpdateModExpectPlatform {
         throw new AssertionError();
     }
     @ExpectPlatform
-    public static String isMD5Path(){
+    public static Path isMD5Path(){
         // Just throw an error, the content should get replaced at runtime.
         throw new AssertionError();
     }

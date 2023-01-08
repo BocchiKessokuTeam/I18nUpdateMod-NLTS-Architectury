@@ -24,7 +24,7 @@ public class I18nUpdateMod {
     public static final String LANG_PACK_FILE_NAME = I18nUpdateModExpectPlatform.isPackName();
     public static final Path LOCAL_LANGUAGE_PACK = RESOURCE_FOLDER.resolve(LANG_PACK_FILE_NAME);
     public static final Path LANGUAGE_PACK = CACHE_DIR.resolve(LANG_PACK_FILE_NAME);
-    public static final Path LANGUAGE_MD5 = I18nUpdateMod.CACHE_DIR.resolve(I18nUpdateModExpectPlatform.isMD5Path());
+    public static final Path LANGUAGE_MD5 = I18nUpdateModExpectPlatform.isMD5Path();
     public static final String LINK = I18nUpdateModExpectPlatform.isDownloadLink();
     public static final String MD5 = I18nUpdateModExpectPlatform.isMD5Link();
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
