@@ -1,7 +1,7 @@
 package com.github.tartaricacid.i18nupdatemod;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.Options;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.option.GameOptions;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
@@ -20,7 +20,7 @@ import java.util.List;
 public class I18nUpdateMod {
     public static final String MOD_ID = "i18nupdatemod";
     public static final Path CACHE_DIR = Paths.get(System.getProperty("user.home"), "." + MOD_ID, "1.18");
-    public static final Path RESOURCE_FOLDER = Paths.get(Minecraft.getInstance().getResourcePackDirectory().getPath());
+    public static final Path RESOURCE_FOLDER = Paths.get(MinecraftClient.getInstance().getResourcePackDir().getPath());
     public static final String LANG_PACK_FILE_NAME = I18nUpdateModExpectPlatform.isPackName();
     public static final Path LOCAL_LANGUAGE_PACK = RESOURCE_FOLDER.resolve(LANG_PACK_FILE_NAME);
     public static final Path LANGUAGE_PACK = CACHE_DIR.resolve(LANG_PACK_FILE_NAME);
@@ -35,7 +35,7 @@ public class I18nUpdateMod {
         
         //System.out.println(I18nUpdateModExpectPlatform.getConfigDirectory().toAbsolutePath().normalize().toString());
 
-        Minecraft.getInstance().options.languageCode="zh_cn";
+        MinecraftClient.getInstance().options.language="zh_cn";
 
         // 检查主资源包目录是否存在
         if (!Files.isDirectory(CACHE_DIR)) {
@@ -165,8 +165,8 @@ public class I18nUpdateMod {
     }
 
     public static void setResourcesRepository() {
-        Minecraft mc = Minecraft.getInstance();
-        Options gameSettings = mc.options;
+        MinecraftClient mc = MinecraftClient.getInstance();
+        GameOptions gameSettings = mc.options;
         // 在 gameSetting 中加载资源包
         if (!gameSettings.resourcePacks.contains(LANG_PACK_FILE_NAME)) {
             mc.options.resourcePacks.add(LANG_PACK_FILE_NAME);
