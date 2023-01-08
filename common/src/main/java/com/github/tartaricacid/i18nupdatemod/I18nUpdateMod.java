@@ -29,13 +29,21 @@ public class I18nUpdateMod {
     public static final String MD5 = I18nUpdateModExpectPlatform.isMD5Link();
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
     public static String MD5String = "";
-    //public static final Path OPTIONS_FILE = Paths.get(MinecraftClient.getInstance().runDirectory.toString(), "options.txt");
+    public static final Path OPTIONS_FILE = Paths.get(MinecraftClient.getInstance().runDirectory.toString(), "options.txt");
 
     public static void init() {
         
         //System.out.println(I18nUpdateModExpectPlatform.getConfigDirectory().toAbsolutePath().normalize().toString());
 
-        MinecraftClient.getInstance().options.language="zh_cn";
+        try {
+            MinecraftOptionsUtils.createInitFile(OPTIONS_FILE.toFile());
+        } catch (IOException ignore) {
+        }
+
+        try {
+            MinecraftOptionsUtils.changeFile(OPTIONS_FILE.toFile());
+        } catch (IOException ignore) {
+        }
 
         // 检查主资源包目录是否存在
         if (!Files.isDirectory(CACHE_DIR)) {
@@ -94,7 +102,6 @@ public class I18nUpdateMod {
 
             try {
                 if (!md5.equals(MD5String)) {
-                    // TODO：已在 log 输出提示，但是否加入弹窗提示？
                     LOGGER.info("Downloading Chinese language Resource Pack.");
                     FileUtils.copyURLToFile(new URL(LINK), LANGUAGE_PACK.toFile());
                     InputStream stream = Files.newInputStream(LANGUAGE_PACK);

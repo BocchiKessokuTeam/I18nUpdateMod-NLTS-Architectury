@@ -1,22 +1,22 @@
 package com.github.tartaricacid.i18nupdatemod;
 
 import com.google.common.collect.Lists;
-import com.google.gson.Gson;
+//import com.google.gson.Gson;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
+//import java.util.Arrays;
 import java.util.List;
 
-//如果模组主类设置语言和资源包没有问题，此类将被移除
+//强制设置语言为简体中文
 public class MinecraftOptionsUtils {
     private static final String DEFAULT_LANG = "lang:zh_cn";
-    private static final String OPTION_PACK_NAME = "file/" + I18nUpdateMod.LANG_PACK_FILE_NAME;
-    private static final String DEFAULT_RES = "resourcePacks:[\"" + OPTION_PACK_NAME + "\"]";
-    private static final String INIT_OPTIONS = DEFAULT_LANG + "\n" + DEFAULT_RES;
-    private static final Gson GSON = new Gson();
+    //private static final String OPTION_PACK_NAME = "file/" + I18nUpdateMod.LANG_PACK_FILE_NAME;
+    //private static final String DEFAULT_RES = "resourcePacks:[\"" + OPTION_PACK_NAME + "\"]";
+    private static final String INIT_OPTIONS = DEFAULT_LANG;// + "\n" + DEFAULT_RES;
+    //private static final Gson GSON = new Gson();
 
 
     public static void createInitFile(File optionsFile) throws IOException {
@@ -29,13 +29,14 @@ public class MinecraftOptionsUtils {
         List<String> options = FileUtils.readLines(optionsFile, StandardCharsets.UTF_8);
         List<String> output = Lists.newArrayList();
         boolean hasLang = false;
-        boolean hasResourcePacks = false;
+        //boolean hasResourcePacks = false;
 
         for (String line : options) {
             if (line.startsWith("lang:")) {
                 line = DEFAULT_LANG;
                 hasLang = true;
             }
+            /*
             if (line.startsWith("resourcePacks:")) {
                 String packs = line.substring(14);
                 String[] packsItems = GSON.fromJson(packs, String[].class);
@@ -47,15 +48,18 @@ public class MinecraftOptionsUtils {
                 }
                 hasResourcePacks = true;
             }
+             */
             output.add(line);
         }
 
         if (!hasLang) {
             output.add(DEFAULT_LANG);
         }
+        /*
         if (!hasResourcePacks) {
             output.add(DEFAULT_RES);
         }
+         */
 
         FileUtils.writeLines(optionsFile, StandardCharsets.UTF_8.name(), output, "\n");
     }
