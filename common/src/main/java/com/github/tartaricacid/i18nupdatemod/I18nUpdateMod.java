@@ -100,7 +100,7 @@ public class I18nUpdateMod {
 
             try {
                 if (!md5.equals(MD5String)) {
-                    LOGGER.info("Downloading Chinese language Resource Pack.");
+                    LOGGER.info("Downloading '/Simplified Chinese Language Resource Pack/'.");
                     FileUtils.copyURLToFile(new URL(LINK), LANGUAGE_PACK.toFile());
                     InputStream stream = Files.newInputStream(LANGUAGE_PACK);
                     md5 = DigestUtils.md5Hex(stream).toUpperCase();
@@ -116,7 +116,7 @@ public class I18nUpdateMod {
                     Files.copy(LANGUAGE_PACK, LOCAL_LANGUAGE_PACK);
                 }
             } catch (MalformedURLException e) {
-                LOGGER.error("Download Chinese language Resource Pack failed.");
+                LOGGER.error("Download '/Simplified Chinese Language Resource Pack/' failed.");
                 e.printStackTrace();
                 setResourcesRepository();
                 return;
@@ -131,7 +131,7 @@ public class I18nUpdateMod {
                 FileUtils.copyURLToFile(new URL(LINK), LANGUAGE_PACK.toFile());
                 Files.copy(LANGUAGE_PACK, LOCAL_LANGUAGE_PACK);
             } catch (IOException e) {
-                LOGGER.error("Download Chinese language Resource Pack failed.");
+                LOGGER.error("Download '/Simplified Chinese Language Resource Pack/' failed.");
                 e.printStackTrace();
                 return;
             }
