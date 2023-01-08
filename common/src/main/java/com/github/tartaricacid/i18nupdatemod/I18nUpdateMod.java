@@ -32,8 +32,6 @@ public class I18nUpdateMod {
     public static final Path OPTIONS_FILE = Paths.get(MinecraftClient.getInstance().runDirectory.toString(), "options.txt");
 
     public static void init() {
-        
-        //System.out.println(I18nUpdateModExpectPlatform.getConfigDirectory().toAbsolutePath().normalize().toString());
 
         try {
             MinecraftOptionsUtils.createInitFile(OPTIONS_FILE.toFile());
