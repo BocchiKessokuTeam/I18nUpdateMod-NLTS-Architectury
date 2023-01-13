@@ -33,3 +33,10 @@ mandatory = true
 versionRange = "[6.2.43,)"
 ordering = "AFTER"
 side = "BOTH"
+
+[[dependencies.i18nupdatemod]]
+modId = "cloth_config"
+mandatory = true
+versionRange = "[8,)"
+ordering = "NONE"
+side = "BOTH"

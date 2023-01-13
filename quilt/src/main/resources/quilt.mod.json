@@ -49,6 +49,10 @@
       {
         "id": "architectury",
         "version": ">=6.2.43"
+      },
+      {
+        "id": "cloth-config",
+        "version": "8.x"
       }
     ]
   }
