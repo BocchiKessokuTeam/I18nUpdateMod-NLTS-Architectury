@@ -1,6 +1,6 @@
 modLoader = "javafml"
 loaderVersion = "[37,)"
-license = "MIT"
+license = "GPLv3"
 
 [[mods]]
 modId = "i18nupdatemod"
@@ -32,4 +32,11 @@ modId = "architectury"
 mandatory = true
 versionRange = "[2.10.12,)"
 ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.i18nupdatemod]]
+modId = "cloth_config"
+mandatory = true
+versionRange = "[1.17,)"
+ordering = "NONE"
 side = "BOTH"
