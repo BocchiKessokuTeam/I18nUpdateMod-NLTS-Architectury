@@ -17,7 +17,7 @@
     "homepage": "https://modrinth.com/mod/i18nupdatemod-nlts",
     "sources": "https://github.com/TexTrueStudio/I18nUpdateMod2-NLTS"
   },
-  "license": "MIT",
+  "license": "GPLv3",
   "icon": "icon.png",
   "environment": "*",
   "entrypoints": {
@@ -31,6 +31,7 @@
   "depends": {
     "fabric": "*",
     "minecraft": ">=1.16.4",
-    "architectury": ">=1.32.66"
+    "architectury": ">=1.32.66",
+    "cloth-config": "4.x"
   }
 }

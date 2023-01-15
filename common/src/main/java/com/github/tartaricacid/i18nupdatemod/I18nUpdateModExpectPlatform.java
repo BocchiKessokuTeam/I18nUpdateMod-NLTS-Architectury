@@ -16,12 +16,7 @@ public class I18nUpdateModExpectPlatform {
         throw new AssertionError();
     }
     @ExpectPlatform
-    public static String isMD5Link(){
-        // Just throw an error, the content should get replaced at runtime.
-        throw new AssertionError();
-    }
-    @ExpectPlatform
-    public static Path isMD5Path(){
+    public static String isMD5Name(){
         // Just throw an error, the content should get replaced at runtime.
         throw new AssertionError();
     }
