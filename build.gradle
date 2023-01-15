@@ -1,7 +1,7 @@
 plugins {
     id "architectury-plugin" version "3.4-SNAPSHOT"
     id "dev.architectury.loom" version "1.0-SNAPSHOT" apply false
-    id 'io.github.juuxel.loom-quiltflower' version '1.+' apply false
+    //id 'io.github.juuxel.loom-quiltflower' version '1.+' apply false
 }
 
 architectury {
@@ -10,15 +10,10 @@ architectury {
 
 subprojects {
     apply plugin: "dev.architectury.loom"
-    apply plugin: "io.github.juuxel.loom-quiltflower"
-
-    //loom{
-    //    silentMojangMappingsLicense()
-    //}
+    //apply plugin: "io.github.juuxel.loom-quiltflower"
 
     dependencies {
         minecraft "com.mojang:minecraft:${rootProject.minecraft_version}"
-        //mappings loom.officialMojangMappings()
         mappings "net.fabricmc:yarn:${rootProject.yarn_mappings}:v2"
     }
 }
