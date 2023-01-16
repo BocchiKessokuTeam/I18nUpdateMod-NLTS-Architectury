@@ -44,15 +44,15 @@
       },
       {
         "id": "minecraft",
-        "version": "1.19.x"
+        "version": "1.19.3"
       },
       {
         "id": "architectury",
-        "version": ">=6.2.43"
+        "version": "9.x"
       },
       {
         "id": "cloth-config",
-        "version": "8.x"
+        "version": "9.x"
       }
     ]
   }

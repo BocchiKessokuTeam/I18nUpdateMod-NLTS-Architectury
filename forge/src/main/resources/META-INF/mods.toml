@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[42,)"
+loaderVersion = "[44,)"
 license = "GPLv3"
 
 [[mods]]
@@ -16,27 +16,27 @@ logoFile = "icon.png"
 [[dependencies.i18nupdatemod]]
 modId = "forge"
 mandatory = true
-versionRange = "[42,)"
+versionRange = "[44,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.i18nupdatemod]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.19,)"
+versionRange = "[1.19.3,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.i18nupdatemod]]
 modId = "architectury"
 mandatory = true
-versionRange = "[6.2.43,)"
+versionRange = "[7,)"
 ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies.i18nupdatemod]]
 modId = "cloth_config"
 mandatory = true
-versionRange = "[8,)"
+versionRange = "[9,)"
 ordering = "NONE"
 side = "BOTH"
